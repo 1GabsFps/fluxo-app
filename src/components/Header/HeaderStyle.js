@@ -14,6 +14,7 @@ export const HeaderContainer = styled.div`
 export const HeaderTitle = styled.h1`
     color: #3E4648;
     margin: 0;
+
 `;
 
 export const HeaderItens = styled.div`
@@ -21,6 +22,10 @@ export const HeaderItens = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+
+    @media screen and (max-width: 768px) {
+        justify-content: center;
+    }
 `;
 
 export const ItensContainer = styled.div`
