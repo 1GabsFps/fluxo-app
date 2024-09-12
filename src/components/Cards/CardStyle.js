@@ -10,16 +10,19 @@ export const Card = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 `;
 
 export const CardTitle = styled.h2`
     font-size: 24px;
     color: #fff;
 `;
+
 export const CardText = styled.p`
     font-size: 16px;
     color: #fff;
 `;
+
 export const CardButton = styled.button`
     width: 100%;
     padding: 10px;
@@ -40,4 +43,5 @@ export const CardImage = styled.img`
     border-radius: 10px;
     display: flex;
     padding: 10px;
+
 `;

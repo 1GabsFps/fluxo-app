@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardTitle, CardButton, CardImage, CardText } from "./CardStyle";
 
-function Cartoes(Titulo, Texto, Imagem, Botao) {
+function Cartoes({Titulo, Texto, Imagem, Botao}) {
     return (
         <div>
             <Card>
