@@ -1,9 +1,9 @@
 import React from "react";
-import Cartoes from "../components/Cards/Cartoes";
-import Header from "../components/Header/Header";
+import Cartoes from "../../components/Cards/Cartoes";
+import Header from "../../components/Header/Header";
 import { MainContainer, HeaderContainer, GlobalStyle, SectionContainer, SectionTitle, SectionDescription, ImageSection } from "./LandingStyle";
-import Button from "../components/Buttons/button";
-import PontoBusImagem from "../img/PontoBus.jpeg";
+import Button from "../../components/Buttons/button";
+import PontoBusImagem from "../../img/PontoBus.jpeg";
 export default function LandingPage() {
     return (
         <div>

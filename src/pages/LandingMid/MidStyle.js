@@ -1,10 +1,11 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled,  { createGlobalStyle }from "styled-components";
+
+
 
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
     }
 
     body {
@@ -16,20 +17,19 @@ export const GlobalStyle = createGlobalStyle`
 export const MainContainer = styled.div`
     display: flex;
     width: 100%;
-    height: 1000px;
-    background-color: #3E3D3D;
+    height: 600px;
+    background-color: #3A7786;
     border: none;
+
 `;
 
-export const HeaderContainer = styled.div`
+export const SectionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    display: block;
     width: 100%;
-    height: 50px;
-    border-radius: 30px;
-    justify-content: space-between;
 `;
-
 export const SectionTitle = styled.h1`
     padding-top: 50px;
     color: white;
@@ -59,23 +59,35 @@ export const SectionDescription = styled.p`
     }
 `;
 
-export const SectionContainer = styled.div`
+export const ImagesConteiner = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start; /* Alinha todas as imagens no topo */
     justify-content: center;
-    align-items: center;
-    width: 100%;
 `;
 
-export const ImageSection = styled.img`
-    margin-top: 50px;
-    width: 900px;
-    height: 400px;
-    border-radius: 10px;
-    object-fit: cover;
+export const Imagem = styled.img`
+    border-radius: 40px;
+    width: 300px;
+    height: 200px;
+    margin-left: 20px;
 
     @media (max-width: 768px) {
-        width: 100%;
-        height: auto;
+        margin-left: 0;
+        width: 120px;
+        height: 100px;
+    }
+`;
+
+export const ImgDescription = styled.p`
+    color: white;
+    font-size: 1.5em;
+    max-width: 50%;
+    text-align: center;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+        font-size: 1.2em;
+        max-width: 80%;
     }
 `;

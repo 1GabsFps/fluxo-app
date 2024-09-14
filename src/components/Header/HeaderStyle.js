@@ -1,4 +1,19 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+// Importando a fonte do Google Fonts
+export const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+`;
 
 export const HeaderContainer = styled.div`
     margin-top: 20px;
@@ -13,13 +28,16 @@ export const HeaderContainer = styled.div`
 
 export const HeaderTitle = styled.h1`
     color: #3E4648;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     margin: 0;
-
 `;
 
 export const HeaderItens = styled.div`
     color: #3E4648;
     justify-content: space-between;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     align-items: center;
     padding: 10px;
 

@@ -11,20 +11,25 @@ export const Card = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
+    @media (max-width: 768px) {
+        width: 300px;
+        height: 200px;
+    }
 `;
 
 export const CardTitle = styled.h2`
-    font-size: 24px;
+    font-size: 2em;
     color: #fff;
 `;
 
 export const CardText = styled.p`
-    font-size: 16px;
+    font-size: 20px;
+    max-width: 90%;
     color: #fff;
 `;
 
 export const CardButton = styled.button`
-    width: 100%;
+    width: 200px;
     padding: 10px;
     background-color: #333;
     color: #fff;
@@ -35,10 +40,15 @@ export const CardButton = styled.button`
     &:hover {
         background-color: #555;
     }
+
+    @media (max-width: 768px) {
+        width: 150px;
+    }
 `;
 
 export const CardImage = styled.img`
-    width: 200px;
+    height: 150px;
+    width: 150px;
     object-fit: cover;
     border-radius: 10px;
     display: flex;
