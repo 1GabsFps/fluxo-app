@@ -29,7 +29,6 @@ export const CardContainer = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: end;
-    max-height: 800px;
 
 `;
 
@@ -61,7 +60,7 @@ export const AboutContainer = styled.div`
     height: fit-content;
     display: flex;
     flex-direction: column;
-    min-width: 700px;
+    min-width: 500px;
     align-items: center;
 
     @media (max-width: 768px) {

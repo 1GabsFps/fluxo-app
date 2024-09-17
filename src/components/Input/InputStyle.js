@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputWrapper = styled.div`
     position: relative;
     width: 300px;
-    margin: 20px 0;
+    margin: 10px;
 `;
 
 export const InputContainer = styled.input`
@@ -14,7 +14,7 @@ export const InputContainer = styled.input`
     color : #3A7786;    
     border-left: 5px solid #3A7786;
     padding: 10px;
-    font-size: 14px;
+    font-size: 18px;
     transition: border-color 0.3s ease-in-out;
     box-sizing: border-box;
 
@@ -24,7 +24,7 @@ export const InputContainer = styled.input`
 
     &:focus + label,
     &:not(:placeholder-shown) + label {
-        top: -20px;
+        top: -1px;
         font-size: 12px;
     }
 `;
@@ -34,7 +34,7 @@ export const InputLabel = styled.label`
     top: 15px;
     left: 15px;
     font-size: 14px;
-    color: #999;
+    color: #3A7786;
     pointer-events: none;
     transition: all 0.3s ease-in-out;
 `;

@@ -1,16 +1,15 @@
 import React from "react";
 import { ButtonStyle, InvertedButtonStyle } from "./btnStyle";
 
-
-const Button = ({Text, inverted}) => {
-
-    if (inverted == 'true') {
+const Button = ({ Text, inverted, onClick }) => {
+    if (inverted === 'true') {
         return (
-            <InvertedButtonStyle>{Text}</InvertedButtonStyle>
+            <InvertedButtonStyle onClick={onClick}>{Text}</InvertedButtonStyle>
         );
     }
     return (
-        <ButtonStyle>{Text}</ButtonStyle>
+        <ButtonStyle onClick={onClick}>{Text}</ButtonStyle>
     );
 }
+
 export default Button;

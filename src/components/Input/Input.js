@@ -1,9 +1,15 @@
 import React from 'react';
 import { InputWrapper, InputContainer, InputLabel } from './InputStyle';
 
-const Input = ({placeholder}) => (
+const Input = ({ placeholder, value, onChange, type = "text" }) => (
     <InputWrapper>
-        <InputContainer placeholder=" " id="input" />
+        <InputContainer
+            placeholder=" "
+            id="input"
+            value={value}
+            onChange={onChange}
+            type={type}
+        />
         <InputLabel htmlFor="input">{placeholder}</InputLabel>
     </InputWrapper>
 );

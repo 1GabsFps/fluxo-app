@@ -1,18 +1,18 @@
 import React from "react";
 import { HeaderContainer, HeaderTitle, HeaderItens, ItensContainer} from "./HeaderStyle";
 
-const Header = () => {
+const Header = ({Item1, Item2, Title, Item3, Item4}) => {
     return (
         <div>
             <HeaderContainer>
                 <ItensContainer>
-                <HeaderItens>item 1</HeaderItens>
-                <HeaderItens>item 2</HeaderItens>
+                <HeaderItens>{Item1}</HeaderItens>
+                <HeaderItens>{Item2}</HeaderItens>
                 </ItensContainer>
-                <HeaderTitle>Header</HeaderTitle>
+                <HeaderTitle>{Title}</HeaderTitle>
                 <ItensContainer>
-                <HeaderItens>item 3</HeaderItens>
-                <HeaderItens>item 4</HeaderItens>
+                <HeaderItens>{Item3}</HeaderItens>
+                <HeaderItens>{Item4}</HeaderItens>
                 </ItensContainer>
             </HeaderContainer>
         </div>

@@ -35,6 +35,8 @@ export const HeaderTitle = styled.h1`
 
 export const HeaderItens = styled.div`
     color: #3E4648;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -43,6 +45,8 @@ export const HeaderItens = styled.div`
 
     @media screen and (max-width: 768px) {
         justify-content: center;
+        padding: 0px;
+        margin-left: 10px;
     }
 `;
 
