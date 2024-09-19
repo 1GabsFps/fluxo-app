@@ -46,7 +46,7 @@ export const HeaderItens = styled.div`
     @media screen and (max-width: 768px) {
         justify-content: center;
         padding: 0px;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 `;
 

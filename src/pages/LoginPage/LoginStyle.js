@@ -62,6 +62,7 @@ export const ButtonConteiner = styled.div`
 export const Image = styled.img`
     width: 200px;
     height: 100px;
+    margin: 100px;
 `;
 
 

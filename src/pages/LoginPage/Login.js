@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Input from "../../components/Input/Input";
-import { GlobalStyle, MainContainer, LoginForm, ForgotPassword, ButtonConteiner, ImageContainer } from "./LoginStyle";
+import { GlobalStyle, MainContainer, LoginForm, ForgotPassword, ButtonConteiner, ImageContainer, Image } from "./LoginStyle";
+import Flogo from "../../img/Flogo.svg";
 import Button from "../../components/Buttons/button";
 
 export default function LoginPage() {
@@ -35,20 +36,22 @@ export default function LoginPage() {
     };
 
     const HandleLogar = () => {
-        if (!email || !password) {
-            console.error("Email e senha são obrigatórios");
+        if (!cpf || !password) {
+            console.error("cpf e senha são obrigatórios");
             return;
         }
 
         const data = {
-            email,
+            cpf,
             password
         };
         console.log("Dados enviados para login:", data);
 
-        axios.post('http://127.0.0.1:8000/', data)
+        axios.post('http://127.0.0.1:8000/login/', data)
             .then(response => {
-                console.log(response.data);
+                const token = response.data.token;
+                document.cookie = `token=${token}; path=/`;
+                console.log("Token salvo nos cookies:", token);
             })
             .catch(error => {
                 console.error("Erro na requisição:", error);
@@ -56,7 +59,7 @@ export default function LoginPage() {
     };
 
     const handleButtonClick = () => {
-        setShowCadastro(true);
+        setShowCadastro(!showCadastro)
     };
 
     if (showCadastro) {
@@ -65,14 +68,18 @@ export default function LoginPage() {
                 <GlobalStyle />
                 <MainContainer>
                     <LoginForm onSubmit={(e) => e.preventDefault()}>
+                        <Image src={Flogo}/>
                         <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <Input placeholder="CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
                         <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <Input placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <ButtonConteiner>
                             <Button Text="Cadastrar" onClick={HandleCadastrar} />
+                            <Button Text="Login" inverted="true" onClick={handleButtonClick}/>
                         </ButtonConteiner>
                     </LoginForm>
+                    <ImageContainer>
+                    </ImageContainer>
                 </MainContainer>
             </div>
         );
@@ -83,7 +90,8 @@ export default function LoginPage() {
             <GlobalStyle />
             <MainContainer>
                 <LoginForm onSubmit={(e) => e.preventDefault()}>
-                    <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Image src={Flogo}/>
+                    <Input placeholder="Cpf" value={cpf} onChange={(e) => setCpf(e.target.value)} />
                     <Input placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <ForgotPassword>Esqueceu a senha?</ForgotPassword>
                     <ButtonConteiner>
