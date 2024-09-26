@@ -1,5 +1,5 @@
 import {styled, createGlobalStyle} from "styled-components";
-import Flogo from "../../img/Flogo.svg";
+import Flogo from "../../img/LogoBlue.svg";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -61,8 +61,8 @@ export const ButtonConteiner = styled.div`
 
 export const Image = styled.img`
     width: 200px;
-    height: 100px;
-    margin: 100px;
+    height: 200px;
+    margin: 100px; 
 `;
 
 

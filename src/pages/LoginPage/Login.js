@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Input from "../../components/Input/Input";
 import { GlobalStyle, MainContainer, LoginForm, ForgotPassword, ButtonConteiner, ImageContainer, Image } from "./LoginStyle";
-import Flogo from "../../img/Flogo.svg";
+import Flogo from "../../img/LogoBlue.svg";
 import Button from "../../components/Buttons/button";
 
 export default function LoginPage() {
@@ -68,7 +68,7 @@ export default function LoginPage() {
                 <GlobalStyle />
                 <MainContainer>
                     <LoginForm onSubmit={(e) => e.preventDefault()}>
-                        <Image src={Flogo}/>
+                        <Image src={Flogo} />
                         <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <Input placeholder="CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
                         <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
