@@ -19,7 +19,7 @@ export const HeaderContainer = styled.div`
     margin-top: 20px;
     align-items: center;
     display: flex;
-    background-color: #3A7786;
+    background-color: #9ba6a8;
     width: 100%;
     height: 50px;
     border-radius: 30px;
@@ -55,4 +55,12 @@ export const ItensContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+`;
+
+export const Image = styled.img`
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 5px rgba(58, 119, 134, 0.7));
 `;
