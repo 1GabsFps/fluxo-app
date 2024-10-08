@@ -20,12 +20,16 @@ export const Card = styled.div`
 export const CardTitle = styled.h2`
     font-size: 2em;
     color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 800;
 `;
 
 export const CardText = styled.p`
     font-size: 20px;
     max-width: 90%;
     color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 `;
 
 export const CardButton = styled.button`
@@ -37,6 +41,8 @@ export const CardButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     &:hover {
         background-color: #555;
     }

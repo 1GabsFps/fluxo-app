@@ -16,14 +16,18 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const HeaderContainer = styled.div`
-    margin-top: 20px;
     align-items: center;
     display: flex;
-    background-color: #9ba6a8;
+    background-color: #3A7786;
     width: 100%;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 0px 0px 30px 30px;
+    border-width: 0px 0px 5px 0px;
+    border-style: solid;
+    border-color: #3E4648;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
 `;
 
 export const HeaderTitle = styled.h1`
@@ -34,7 +38,7 @@ export const HeaderTitle = styled.h1`
 `;
 
 export const HeaderItens = styled.div`
-    color: #3E4648;
+    color: #fff;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -58,9 +62,12 @@ export const ItensContainer = styled.div`
 `;
 
 export const Image = styled.img`
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 50px;
     margin-right: 10px;
     cursor: pointer;
-    filter: drop-shadow(0px 0px 5px rgba(58, 119, 134, 0.7));
+    &:hover {
+        filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.7));
+        transition: 0.6s;
+    }
 `;

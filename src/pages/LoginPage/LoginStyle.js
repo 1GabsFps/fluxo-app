@@ -73,5 +73,7 @@ export const ForgotPassword = styled.a`
     padding: 40px;
     text-decoration: none;
     cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 
 `;

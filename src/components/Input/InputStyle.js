@@ -17,7 +17,8 @@ export const InputContainer = styled.input`
     font-size: 18px;
     transition: border-color 0.3s ease-in-out;
     box-sizing: border-box;
-
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     &:focus {
         outline: none;
     }
@@ -37,4 +38,6 @@ export const InputLabel = styled.label`
     color: #3A7786;
     pointer-events: none;
     transition: all 0.3s ease-in-out;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 `;

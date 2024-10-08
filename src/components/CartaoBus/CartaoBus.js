@@ -2,8 +2,12 @@ import { ReactComponent as Flogo } from "../../img/Flogo.svg";
 import { ReactComponent as Txtlogo } from "../../img/FlogoTxt.svg";
 import { Card, CardLogo } from "../../components/CartaoBus/CBusStyle";
 import { CardContainer, CardText } from "../../components/CartaoBus/CBusStyle";
+import { useState } from "react";
 
 export function CartaoBus({ id, classe, saldo }) {
+    const [hovered, setHovered] = useState(false);
+    const [showInfo, setShowInfo] = useState(false);
+
     let Cor;
     switch (classe) {
         case "Normal":
@@ -22,23 +26,48 @@ export function CartaoBus({ id, classe, saldo }) {
             Cor = "#000000"; // Cor padrão
     }
 
+    const handleMouseEnter = () => {
+        setHovered(true);
+        setTimeout(() => setShowInfo(true), 1000);
+    };
+
+    const handleMouseLeave = () => {
+        setHovered(false);
+        setShowInfo(false);
+    };
+
+    const handleClick = () => {
+        localStorage.setItem("cartao", id);
+        window.location.href = "/recarregar";
+    };
+
     return (
-        <Card>
-            <Flogo style={{
-                width: "100px",
-                height: "100px",
-                fill: Cor,
-                margin: "10px"
-            }} />
-            <CardContainer>
-                
-            <CardText>
-                Cartão {classe}
-            </CardText>
-            <CardText>
-                Saldo R$: {saldo}
-            </CardText>
-            </CardContainer>
+        <Card
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
+            style={{
+                transform: hovered ? "rotateY(180deg)" : "rotateY(0deg)",
+            }}
+        >
+            {!hovered && (
+                <Flogo style={{
+                    width: "100px",
+                    height: "100px",
+                    fill: Cor,
+                    margin: "10px"
+                }} />
+            )}
+            {showInfo && (
+                <CardContainer style={{ transform: "rotateY(180deg)" }}>
+                    <CardText>
+                        Cartão {classe}
+                    </CardText>
+                    <CardText>
+                        Saldo R$: {saldo}
+                    </CardText>
+                </CardContainer>
+            )}
         </Card>
     );
 }

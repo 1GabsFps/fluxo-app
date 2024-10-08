@@ -10,6 +10,8 @@ export const ButtonStyle = styled.button`
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
     &:hover {
         background-color: #3A7760;
@@ -26,6 +28,8 @@ export const InvertedButtonStyle = styled.button`
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     &:hover {
         background-color: #555;
         color: #fff;

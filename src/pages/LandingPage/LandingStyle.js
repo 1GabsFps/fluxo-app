@@ -40,6 +40,8 @@ export const SectionTitle = styled.h1`
     max-width: 40%;
     margin: 0;
     text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 800;
 
     @media (max-width: 768px) {
         font-size: 2.5em;
@@ -55,6 +57,8 @@ export const SectionDescription = styled.p`
     max-width: 40%;
     margin: 0;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 
     @media (max-width: 768px) {
         font-size: 1.2em;

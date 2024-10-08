@@ -32,6 +32,8 @@ export const HiUser = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
     @media (max-width: 768px) {
         padding: 5px;
     }
@@ -76,12 +78,16 @@ export const Card = styled.div`
 export const CardTitle = styled.h1`
     font-size: 50x;
     font-weight: bold;
+    font-family: "fredoka one", sans-serif;
+    font-weight: 800;
 `;
 
 export const CardText = styled.p`
     margin-top: 20px;
     font-size: 35px;
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 `;
 
 export const ButtonConteiner = styled.div`

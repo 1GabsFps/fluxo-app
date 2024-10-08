@@ -38,6 +38,8 @@ export const Title = styled.h1`
     max-width: 40%;
     margin: 0;
     text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 800;
 
     @media (max-width: 1024px) {
         font-size: 2.8em;
@@ -96,6 +98,8 @@ export const Text = styled.p`
     font-size: 1.5em;
     margin: 0;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 
 `;
 
