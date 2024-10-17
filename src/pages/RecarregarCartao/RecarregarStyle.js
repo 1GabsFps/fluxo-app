@@ -82,6 +82,8 @@ export const CardText = styled.p`
     margin-top: 20px;
     font-size: 35px;
     font-weight: bold;
+    margin-top: 200px;
+    font-family: 'Open Sans', sans-serif;
     color: white;
 `;
 

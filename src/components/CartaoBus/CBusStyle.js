@@ -7,8 +7,9 @@ export const Card = styled.div`
     height: 300px;
     background-color: #000;
     border-radius: 10px;
-    margin: 10px;
-    box-shadow: 0px 0px 10px 0px #000000;
+    margin-top: 100px;
+
+    box-shadow: 0px 0px 10px 0px #000;
     cursor: pointer;
     transition: transform 0.6s, box-shadow 0.6s;
 
@@ -19,7 +20,7 @@ export const Card = styled.div`
 
     &:hover {
         transform: rotateY(180deg);
-        box-shadow: 0px 0px 10px 0px #fff;
+        box-shadow: 0px 0px 20px 0px #000;
     }   
 `;
 

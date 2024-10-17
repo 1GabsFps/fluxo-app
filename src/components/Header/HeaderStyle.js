@@ -21,10 +21,8 @@ export const HeaderContainer = styled.div`
     background-color: #3A7786;
     width: 100%;
     height: 50px;
-    border-radius: 0px 0px 30px 30px;
-    border-width: 0px 0px 5px 0px;
-    border-style: solid;
-    border-color: #3E4648;
+    border-radius: 0px 0px 25px 25px;
+    box-shadow: 0px 8px 15px rgba(100, 100, 100, 0.8);
     justify-content: space-between;
     position: fixed;
     top: 0;
@@ -46,6 +44,50 @@ export const HeaderItens = styled.div`
     font-weight: 400;
     align-items: center;
     padding: 10px;
+    cursor: pointer;
+    position: relative;
+
+    @keyframes borderExpand {
+        from {
+            width: 0;
+            border-radius: 50px;
+        }
+        to {
+            width: 75%;
+            border-radius: 50px;
+        }
+    }
+
+    @keyframes borderShrink {
+        from {
+            width: 75%;
+            border-radius: 50px;
+            right: 0;
+        }
+        to {
+            width: 0;
+            border-radius: 50px;
+            right: 0;
+        }
+    }
+
+    &:hover::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 2px;
+        background-color: #fff;
+        animation: borderExpand 0.3s forwards;
+    }
+
+    &:not(:hover)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 2px;
+        background-color: #fff;
+        animation: borderShrink 0.3s forwards;
+    }
 
     @media screen and (max-width: 768px) {
         justify-content: center;

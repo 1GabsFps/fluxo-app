@@ -48,7 +48,7 @@ export default function HomePage() {
                         <CardText>Verifique o saldo de seus cartões e recarregue-os</CardText>
                         <ButtonConteiner>
                             <Button Text="Visualizar" onClick={
-                                () => window.location.href = "/recarregar"
+                                () => window.location.href = "/cartoes"
                             }/>
                         </ButtonConteiner>
                     </Card>

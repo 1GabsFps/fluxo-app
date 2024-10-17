@@ -29,6 +29,7 @@ export const MainContainer = styled.div`
 export const HiUser = styled.div`
     display: flex;
     width: 95%;
+    margin-top: 50px;
     align-items: center;
     justify-content: space-between;
     padding: 20px;

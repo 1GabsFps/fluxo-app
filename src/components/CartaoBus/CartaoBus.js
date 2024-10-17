@@ -28,7 +28,7 @@ export function CartaoBus({ id, classe, saldo }) {
 
     const handleMouseEnter = () => {
         setHovered(true);
-        setTimeout(() => setShowInfo(true), 1000);
+        setTimeout(() => setShowInfo(true), 500); // Ajuste o tempo conforme necessário
     };
 
     const handleMouseLeave = () => {
@@ -48,6 +48,7 @@ export function CartaoBus({ id, classe, saldo }) {
             onClick={handleClick}
             style={{
                 transform: hovered ? "rotateY(180deg)" : "rotateY(0deg)",
+                transition: "transform 0.5s", // Adicione a transição
             }}
         >
             {!hovered && (
@@ -58,7 +59,7 @@ export function CartaoBus({ id, classe, saldo }) {
                     margin: "10px"
                 }} />
             )}
-            {showInfo && (
+            {hovered && showInfo && (
                 <CardContainer style={{ transform: "rotateY(180deg)" }}>
                     <CardText>
                         Cartão {classe}
