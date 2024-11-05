@@ -43,6 +43,12 @@ export const MetodoPagamento = styled.div`
     background-color: #262626;
     border-radius: 10px;
     padding: 20px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
 `;
 
 export const FormPagamento = styled.form`
@@ -58,12 +64,25 @@ export const FormPagamento = styled.form`
     align-self: center;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
 `;
 
 export const Image = styled.img`
     margin-left: 150px;
     width: 300px;
     height: 500px;
+
+    @media (max-width: 768px) {
+        margin-left: 0;
+        width: 200px;
+        height: auto;
+    }
 `;
 
 
@@ -74,6 +93,11 @@ export const InputsConteiner = styled.div`
     padding: 20px;
     border-radius: 10px;
     gap: 10px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 10px;
+    }
     
 `;
 

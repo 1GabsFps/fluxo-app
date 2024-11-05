@@ -22,6 +22,10 @@ export const CardTitle = styled.h2`
     color: #fff;
     font-family: 'Fredoka One', cursive;
     font-weight: 800;
+
+    @media (max-width: 768px) {
+        font-size: 1.5em;
+    }
 `;
 
 export const CardText = styled.p`
@@ -30,6 +34,10 @@ export const CardText = styled.p`
     color: #fff;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
 `;
 
 export const CardButton = styled.button`
@@ -48,7 +56,7 @@ export const CardButton = styled.button`
     }
 
     @media (max-width: 768px) {
-        width: 150px;
+        width: 100px;
     }
 `;
 

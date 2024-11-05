@@ -4,6 +4,15 @@ export const InputWrapper = styled.div`
     position: relative;
     width: 300px;
     margin: 10px;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    @media (max-width: 480px) {
+        width: 90%;
+        margin: 5px;
+    }
 `;
 
 export const InputContainer = styled.input`
@@ -29,6 +38,16 @@ export const InputContainer = styled.input`
         top: -1px;
         font-size: 12px;
     }
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+        height: 40px;
+        font-size: 14px;
+        padding: 8px;
+    }
 `;
 
 export const InputLabel = styled.label`
@@ -41,4 +60,10 @@ export const InputLabel = styled.label`
     transition: all 0.3s ease-in-out;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
+
+    @media (max-width: 480px) {
+        top: 10px;
+        left: 10px;
+        font-size: 12px;
+    }
 `;

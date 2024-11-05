@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 export const MainContainer = styled.div`
     display: flex;
     width: 100%;
-    height: 600px;
+    height: 100%;
     background-color: #3A7786;
     border: none;
 
@@ -29,6 +29,9 @@ export const SectionContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    @media (max-width: 768px) {
+        padding: 10px;
+    }
 `;
 export const SectionTitle = styled.h1`
     padding-top: 50px;
@@ -68,6 +71,10 @@ export const ImagesConteiner = styled.div`
     flex-direction: row;
     align-items: flex-start; /* Alinha todas as imagens no topo */
     justify-content: center;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const Imagem = styled.img`
@@ -77,8 +84,9 @@ export const Imagem = styled.img`
     margin-left: 20px;
 
     @media (max-width: 768px) {
+        border-radius: 15px;
         margin-left: 0;
-        width: 120px;
+        width: 200px;
         height: 100px;
     }
 `;

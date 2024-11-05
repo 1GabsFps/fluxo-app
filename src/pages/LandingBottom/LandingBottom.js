@@ -1,12 +1,12 @@
 import React from "react";
 import Cartoes from "../../components/Cards/Cartoes";
-import { MainContainer, CardContainer, InfoContainer, Title, AboutContainer, Text, AboutInfos, Imagem } from "./BottomStyle";
+import { MainContainer, CardContainer, InfoContainer, Title, AboutContainer, Text, AboutInfos, Imagem, Grafico } from "./BottomStyle";
 import Comum from "../../svg/Comum.svg";
 import Senior from "../../svg/Senior.svg";
 import Estudante from "../../svg/Estudante.svg";
 import Especial from "../../svg/Especial.svg";
 import ValeTransporte from "../../svg/ValeTransporte.svg";
-import Grafico from "../../img/Grafico.png";
+import Graph from "../../img/Grafico.png";
 import Check from "../../img/Check.png";
 
 export default function LandingBottom() {
@@ -16,7 +16,7 @@ export default function LandingBottom() {
                 <AboutContainer>
                     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '90px'}}>
                         <Title>Beneficios</Title>
-                        <img src={Grafico} alt="Grafico" />
+                        <Grafico src={Graph} alt="Grafico" />
                     </div>
                     <AboutInfos>
                         <Imagem src={Check}/>

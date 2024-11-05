@@ -34,7 +34,7 @@ export default function Pagamento() {
             <GlobalStyle />
             <MainContainer>
                 <HeaderContainer>
-                    <Headers Title={logotxt} Item1="Item1" Item2="Item2" Item3="Item3" Item4="Item4" />
+                    <Headers Title={logotxt} />
                 </HeaderContainer>
                 <FormPagamento onSubmit={handlePagamento}>
                     <InputsConteiner>

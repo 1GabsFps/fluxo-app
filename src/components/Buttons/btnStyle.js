@@ -16,6 +16,10 @@ export const ButtonStyle = styled.button`
     &:hover {
         background-color: #3A7760;
     }
+    @media (max-width: 768px) {
+        width: 120px;
+        height: 40px;
+    }
 `;
 
 export const InvertedButtonStyle = styled.button`
@@ -33,5 +37,9 @@ export const InvertedButtonStyle = styled.button`
     &:hover {
         background-color: #555;
         color: #fff;
+    }
+    @media (max-width: 768px) {
+        width: 120px;
+        height: 40px;
     }
 `;

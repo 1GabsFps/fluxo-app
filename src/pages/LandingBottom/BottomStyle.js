@@ -3,13 +3,9 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
     display: flex;
     width: 100%;
-    height: 1200px;
+    height: 100%;
     background-color: #3E3D3D;
     border: none;
-
-    @media (max-width: 768px) {
-        height: 2300px;
-    }
 
 `;
 
@@ -17,9 +13,11 @@ export const InfoContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
+    
+    
 
-    @media (max-width: 768px) {
-        display: block;
+    @media (max-width: 1010px) {
+        flex-direction: column;
     }
 `;
 
@@ -28,8 +26,12 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: end;
+    justify-content: center;
+    
 
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
 `;
 
 export const Title = styled.h1`
@@ -67,9 +69,8 @@ export const AboutContainer = styled.div`
 
     @media (max-width: 768px) {
         min-width: 300px;
-        display: block;
-        margin-left: 20px;
-
+        flex-direction: column;
+        width: 100%;
     }
 `;
 
@@ -87,8 +88,9 @@ export const AboutInfos = styled.div`
 
     @media (max-width: 768px) {
         height: 120px;
+        flex-direction: column;
+        height: auto;
     }
-
 `;
 
 export const Text = styled.p`
@@ -107,4 +109,16 @@ export const Imagem = styled.img`
     height: 20px;
     width: 20px;
 
+    
+
+`;
+
+export const Grafico = styled.img`
+    width: 50%;
+    height: 50%;
+
+    @media (max-width: 768px) {
+        width: 80%;
+        height: 80%;
+    }
 `;

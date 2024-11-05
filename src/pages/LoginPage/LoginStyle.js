@@ -20,6 +20,7 @@ export const MainContainer = styled.div`
     background-color: #3E3D3D;
     border: none;
 
+
     @media (max-width: 768px) {
         height: 100vh;
     }
@@ -49,6 +50,7 @@ export const ImageContainer = styled.div`
 
     @media (max-width: 768px) {
         width: 0;
+        display: none;
     }
 
 `;
@@ -76,4 +78,8 @@ export const ForgotPassword = styled.a`
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 
+    @media (max-width: 768px) {
+        font-size: 0.8em;
+        padding: 20px;
+    }
 `;

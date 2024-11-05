@@ -21,7 +21,7 @@ export const MainContainer = styled.div`
     border: none;
 
     @media (max-width: 768px) {
-        height: 250vh;
+        height: 120vh;
     }
 
 `;
@@ -53,7 +53,7 @@ export const CardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    margin: 30px;
+    margin: 90px;
     justify-content: center;
 `;
 

@@ -5,6 +5,7 @@ import Login from "./pages/LoginPage/Login";
 import HomePage from "./pages/homepage/HomePage";
 import Recarregar from "./pages/RecarregarCartao/Recarregar";
 import Pagamento from "./pages/Pagar/Pagamento";
+import Faq from "./pages/faq/Faq";  
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/cartoes" element={<Recarregar />} />
         <Route path="/recarregar" element={<Pagamento />} />
+        <Route path="/faq" element={<Faq/>} />
       </Routes>
     </Router>
   );

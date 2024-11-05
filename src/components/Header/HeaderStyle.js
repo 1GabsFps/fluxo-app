@@ -26,6 +26,12 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     position: fixed;
     top: 0;
+
+    @media (max-width: 768px) {
+        height: 40px;
+        justify-content: center;
+        border-radius: 0px;
+    }
 `;
 
 export const HeaderTitle = styled.h1`
@@ -90,9 +96,12 @@ export const HeaderItens = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-        justify-content: center;
         padding: 0px;
         margin-left: 5px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 5px;
     }
 `;
 
@@ -101,6 +110,10 @@ export const ItensContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const Image = styled.img`
@@ -112,4 +125,77 @@ export const Image = styled.img`
         filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.7));
         transition: 0.6s;
     }
+
+    @media (max-width: 768px) {
+        width: 100px;
+        height: 40px;
+    }
+
+    @media (max-width: 768px) {
+        animation: shadowBlink 1s infinite
+    }
+
+    @keyframes shadowBlink {
+        0%, 100% {
+            filter: drop-shadow(0px 8px 15px rgba(100, 100, 100, 0.8));
+        }
+        50% {
+            filter: drop-shadow(0px 8px 15px rgba(255, 255, 255, 0.8));
+        }
+    }
+`;
+
+export const CenteredImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+`;
+
+export const MenuButton = styled.button`
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
+`;
+
+export const MobileMenu = styled.div`
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3A7786;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    box-shadow: 0px 8px 15px rgba(100, 100, 100, 0.8);
+
+    @media (max-width: 768px) {
+        display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+        top: 40px;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    animation: ${({ isOpen }) => (isOpen ? 'fadeIn 0.6s forwards' : 'fadeOut 0.6s forwards')};
 `;
