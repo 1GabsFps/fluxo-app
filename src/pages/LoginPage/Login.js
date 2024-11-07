@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Input from "../../components/Input/Input";
 import { GlobalStyle, MainContainer, LoginForm, ForgotPassword, ButtonConteiner, ImageContainer, Image } from "./LoginStyle";
@@ -12,6 +12,11 @@ export default function LoginPage() {
     const [cpf, setCpf] = useState("");
     const [showCadastro, setShowCadastro] = useState(false);
 
+    useEffect(() => {
+    if (window.location.hash === '#cadastro') {
+        setShowCadastro(true);
+    }
+}, []);
 
     const HandleCadastrar = () => {
         if (!username || !password || !cpf || !email) {
@@ -64,6 +69,11 @@ export default function LoginPage() {
 
     const handleButtonClick = () => {
         setShowCadastro(!showCadastro)
+        if (!showCadastro) {
+            window.location.hash = 'cadastro';
+        } else {
+            window.location.hash = '';
+        }
     };
 
     if (showCadastro) {

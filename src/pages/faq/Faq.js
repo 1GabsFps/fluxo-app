@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { GlobalStyle, MainContainer, FaqTitle, SearchInput, FaqContent, QuestionContainer, QuestionHeader, Question, Answer, ArrowIcon } from "./FaqStyle";
+import Header from "../../components/Header/Header";
+import Flogo from "../../img/FlogoTxt.svg";
+import { GlobalStyle, MainContainer, FaqTitle, SearchInput, FaqContent, QuestionContainer, QuestionHeader, Question, Answer, SearchIcon, SearchInputContainer } from "./FaqStyle";
 
 export default function Faq() {
     const [faqData, setFaqData] = useState({});
-    const [openQuestions, setOpenQuestions] = useState({});
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
@@ -21,13 +22,6 @@ export default function Faq() {
             });
     }, []);
 
-    const toggleQuestion = (index) => {
-        setOpenQuestions(prevState => ({
-            ...prevState,
-            [index]: !prevState[index]
-        }));
-    };
-
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
     };
@@ -40,22 +34,25 @@ export default function Faq() {
     return (
         <div>
             <GlobalStyle />
+            <Header Title={Flogo} />
             <MainContainer>
                 <FaqTitle>FAQ</FaqTitle>
+                <SearchInputContainer>
                 <SearchInput 
                     type="text" 
-                    placeholder="Search..." 
+                    placeholder="Pesquisar..." 
                     value={searchTerm} 
                     onChange={handleSearch} 
                 />
+                <SearchIcon />
+                </SearchInputContainer>
                 <FaqContent>
                     {filteredFaqData.map((key, index) => (
-                        <QuestionContainer key={index} onClick={() => toggleQuestion(index)}>
+                        <QuestionContainer key={index}>
                             <QuestionHeader>
                                 <Question>{faqData[key].pergunta}</Question>
-                                <ArrowIcon isOpen={openQuestions[index]}>▼</ArrowIcon>
                             </QuestionHeader>
-                            <Answer isVisible={openQuestions[index]}>{faqData[key].resposta}</Answer>
+                            <Answer isVisible={true}>{faqData[key].resposta}</Answer>
                         </QuestionContainer>
                     ))}
                 </FaqContent>

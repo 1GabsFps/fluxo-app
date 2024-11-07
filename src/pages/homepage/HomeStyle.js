@@ -43,7 +43,6 @@ export const HiUser = styled.div`
     }
 
     @media (max-width: 480px) {
-        flex-direction: column;
         align-items: flex-start;
     }
 `;
@@ -55,6 +54,7 @@ export const UserTitle = styled.h1`
     margin-left: 20px;
     @media (max-width: 768px) {
         font-size: 20px;
+        align-self: center;
     }
 
     @media (max-width: 480px) {
@@ -98,6 +98,8 @@ export const Card = styled.div`
     @media (max-width: 768px) {
         width: 90%;
         height: auto;
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
 
     @media (max-width: 480px) {
@@ -138,7 +140,6 @@ export const ButtonConteiner = styled.div`
     justify-content: flex-start;
 
     @media (max-width: 480px) {
-        flex-direction: column;
         align-items: center;
     }
 `;

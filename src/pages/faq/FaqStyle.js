@@ -1,4 +1,5 @@
-import { styled, createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import { FaSearch } from "react-icons/fa";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -18,7 +19,6 @@ export const GlobalStyle = createGlobalStyle`
 export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     min-height: 100vh;
     background-color: #3E3D3D;
@@ -33,39 +33,76 @@ export const FaqTitle = styled.h1`
     text-align: center;
 `;
 
+export const SearchInputContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    
+`;
+
+export const SearchIcon = styled(FaSearch)`
+    position: absolute;
+    color: black;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+`;
+
 export const SearchInput = styled.input`
     padding: 10px;
-    margin: 20px 0;
-    width: 60%;
+    padding-left: 30px;
+    align-self: center;
+    width: 5%;
     border-radius: 20px;
     border: 1px solid #ccc;
     background-color: #fff;
     color: #333;
     outline: none;
+    transition: width 0.3s ease-in-out;
 
     &::placeholder {
+        color: transparent;
+    }
+
+    &:focus::placeholder {
         color: #aaa;
+    }
+
+    &:focus + ${SearchIcon} {
+        opacity: 0;
+    }
+    &:hover + ${SearchIcon} {
+        opacity: 0;
+    }
+    &:hover::placeholder {
+        color: #aaa;
+    }
+
+    &:hover {
+        width: 60%;
+    }
+
+    &:focus {
+        width: 60%;
     }
 `;
 
 export const FaqContent = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 80%;
-    max-width: 800px;
-    margin: 20px 0;
+    width: 90%;
+    margin-left: 100px;
     word-wrap: break-word;
+
+    @media (max-width: 768px) {
+        margin-left: 0;
+    }
 `;
 
 export const QuestionContainer = styled.div`
     width: 100%;
-    background-color: #2C2C2C;
     padding: 15px;
     margin: 10px 0;
-    cursor: pointer;
-    border-radius: 5px;
-    border-bottom: 2px solid white;
 `;
 
 export const QuestionHeader = styled.div`
@@ -76,21 +113,16 @@ export const QuestionHeader = styled.div`
 
 export const Question = styled.h2`
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     color: white;
     margin: 0;
+    font-family: 'Arial', sans-serif;
 `;
 
 export const Answer = styled.p`
     font-size: 16px;
-    margin: 10px 0 0;
+    margin: 10px 5px 0;
+    font-weight: 400;
     color: white;
-    display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
-`;
-
-export const ArrowIcon = styled.span`
-    font-size: 24px;
-    color: white;
-    transform: ${({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(180deg)')};
-    transition: transform 0.3s ease;
+    font-family: 'Arial', sans-serif;
 `;

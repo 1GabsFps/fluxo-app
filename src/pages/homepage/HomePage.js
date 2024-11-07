@@ -65,7 +65,9 @@ export default function HomePage() {
                         <CardTitle>Suporte</CardTitle>
                         <CardText>Precisa de ajuda? Nos envie um email!</CardText>
                         <ButtonConteiner>
-                            <Button Text="Suporte"/>
+                            <Button Text="Suporte" onClick={
+                                () => window.location.href = "/faq"
+                            }/>
                         </ButtonConteiner>
                     </Card>
                 </CardsContainer>
