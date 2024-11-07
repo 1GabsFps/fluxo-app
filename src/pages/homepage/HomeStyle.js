@@ -1,4 +1,4 @@
-import {styled, createGlobalStyle} from "styled-components";
+import { styled, createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -36,7 +36,7 @@ export const HiUser = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     @media (max-width: 768px) {
         padding: 5px;
@@ -52,6 +52,7 @@ export const UserTitle = styled.h1`
     font-size: 39px;
     font-weight: bold;
     margin-left: 20px;
+    font-family: 'Roboto', sans-serif;
     @media (max-width: 768px) {
         font-size: 20px;
         align-self: center;
@@ -94,6 +95,7 @@ export const Card = styled.div`
     justify-content: space-around;
     color: white;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3), 0px 12px 24px rgba(0, 0, 0, 0.2);
+    text-align: center; // Add this line to center-align text and icons
 
     @media (max-width: 768px) {
         width: 90%;
@@ -112,7 +114,7 @@ export const Card = styled.div`
 export const CardTitle = styled.h1`
     font-size: 50x;
     font-weight: bold;
-    font-family: "fredoka one", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 800;
 
     @media (max-width: 480px) {
@@ -123,8 +125,7 @@ export const CardTitle = styled.h1`
 export const CardText = styled.p`
     margin-top: 20px;
     font-size: 35px;
-    font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 
     @media (max-width: 480px) {
@@ -142,9 +143,4 @@ export const ButtonConteiner = styled.div`
     @media (max-width: 480px) {
         align-items: center;
     }
-`;
-
-export const CardLogo = styled.img`
-    width: 100px;
-    height: 100px;
 `;

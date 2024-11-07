@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 import logotxt from "../../img/FlogoTxt.svg";
 import Flogo from "../../img/LogoBlue.svg";
 import Headers from "../../components/Header/Header";
 import Button from "../../components/Buttons/button";
 import Input from "../../components/Input/Input";
 import { GlobalStyle, MainContainer, HeaderContainer, FormPagamento, Image, Title, InputsConteiner } from "./PagamentoStyle";
+
+const toastOptions = {
+    style: {
+        background: 'black',
+        color: 'white',
+    },
+};
 
 export default function Pagamento() {
     const [quantia, setQuantia] = useState("");
@@ -23,14 +31,17 @@ export default function Pagamento() {
                 token: usrtoken,
             });
             const { init_point } = response.data;
+            toast.success('Pagamento iniciado com sucesso!', toastOptions);
             window.location.href = init_point;
         } catch (error) {
+            toast.error('Erro, Todos os campos devem ser preenchidos.', toastOptions);
             console.error("Erro ao processar pagamento:", error);
         }
     }
 
     return (
         <div>
+            <Toaster />
             <GlobalStyle />
             <MainContainer>
                 <HeaderContainer>

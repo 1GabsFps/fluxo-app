@@ -1,10 +1,10 @@
 import React from "react";
 import Headers from "../../components/Header/Header";
 import Flogo from "../../img/FlogoTxt.svg";
-import CLogo from "../../img/LogoBlue.svg";
 import Button from "../../components/Buttons/button";
 import axios from "axios";
-import { GlobalStyle, MainContainer, UserTitle, HiUser, Card, CardsContainer, CardTitle, CardText, CardLogo, ButtonConteiner} from "./HomeStyle";
+import { GlobalStyle, MainContainer, UserTitle, HiUser, Card, CardsContainer, CardTitle, CardText, ButtonConteiner } from "./HomeStyle";
+import { FaCreditCard, FaUserEdit, FaEnvelope } from 'react-icons/fa';
 
 export default function HomePage() {
     const [usuario, setUsuario] = React.useState("");
@@ -43,7 +43,7 @@ export default function HomePage() {
                 </HiUser>
                 <CardsContainer>
                     <Card>
-                        <CardLogo src={CLogo}/>
+                        <FaCreditCard size={100} color="#3A7786"/>
                         <CardTitle>Cartões</CardTitle>
                         <CardText>Verifique o saldo de seus cartões e recarregue-os</CardText>
                         <ButtonConteiner>
@@ -53,7 +53,7 @@ export default function HomePage() {
                         </ButtonConteiner>
                     </Card>
                     <Card>
-                        <CardLogo src={CLogo}/>
+                        <FaUserEdit size={100} color="#3A7786"/>
                         <CardTitle>Conta</CardTitle>
                         <CardText>Edite e visualize as informações do seu perfil</CardText>
                         <ButtonConteiner>
@@ -61,7 +61,7 @@ export default function HomePage() {
                         </ButtonConteiner>
                     </Card>
                     <Card>
-                        <CardLogo src={CLogo}/>
+                        <FaEnvelope size={100} color="#3A7786"/>
                         <CardTitle>Suporte</CardTitle>
                         <CardText>Precisa de ajuda? Nos envie um email!</CardText>
                         <ButtonConteiner>
