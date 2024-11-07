@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { toast, Toaster } from "react-hot-toast";
 import { CartaoBus } from "../../components/CartaoBus/CartaoBus";
 import { GlobalStyle, MainContainer, CardsContainer, CardText } from "./RecarregarStyle";
 import Header from "../../components/Header/Header";
@@ -30,24 +31,35 @@ export default function Recarregar() {
         HandleCartoes();
     }, []);
 
+    const handleRecharge = (cartao) => {
+        if (cartao.classe === 'Idoso' || cartao.classe === 'Especial') {
+            toast.error("Cartões de idoso ou especial não podem ser carregados.");
+        } else {
+            localStorage.setItem("cartao", cartao.id);
+            window.location.href = "/recarregar";
+        }
+    };
+
     return (
         <div>
             <GlobalStyle />
+            <Toaster />
             <MainContainer>
                 <Header Title={Tlogo} Item1="Item1" Item2="Item2" Item3="Item3" Item4="Item4" />
                 <CardsContainer>
                     {cartoes.length > 0 ? (
                         cartoes.map((cartao) => (
-                            <div style={
-                                {
+                            <div 
+                                key={cartao.id}
+                                style={{
                                     display: "flex",
                                     flexDirection: "column",
                                     alignItems: "center",
                                     justifyContent: "center"
-                                }
-                            }>
-                            <CartaoBus key={cartao.id} id={cartao.id} classe={cartao.classe} saldo={cartao.saldo} />
-
+                                }}
+                                onClick={() => handleRecharge(cartao)}
+                            >
+                                <CartaoBus id={cartao.id} classe={cartao.classe} saldo={cartao.saldo} />
                             </div>
                         ))
                     ) : (

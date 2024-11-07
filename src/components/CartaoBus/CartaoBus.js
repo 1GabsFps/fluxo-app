@@ -53,16 +53,10 @@ export function CartaoBus({ id, classe, saldo }) {
         }
     };
 
-    const handleClick = () => {
-        localStorage.setItem("cartao", id);
-        window.location.href = "/recarregar";
-    };
-
     return (
         <Card
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
             style={{
                 transform: hovered && !isMobile ? "rotateY(180deg)" : "rotateY(0deg)",
                 transition: hovered && !isMobile ? "transform 0.5s" : "none", // Adicione a transição

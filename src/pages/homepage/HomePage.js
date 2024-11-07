@@ -57,7 +57,12 @@ export default function HomePage() {
                         <CardTitle>Conta</CardTitle>
                         <CardText>Edite e visualize as informações do seu perfil</CardText>
                         <ButtonConteiner>
-                            <Button Text="Editar Informações"/>
+                            <Button Text="Editar Informações"
+                            onClick={
+                                () => window.location.href = "/editar"
+                            }
+                            
+                            />
                         </ButtonConteiner>
                     </Card>
                     <Card>

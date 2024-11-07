@@ -52,7 +52,7 @@ export default function EditPage() {
                 setUserData({
                     ...userData,
                     name: response.data.user,
-                    email: response.data.email // Fix the email field
+                    email: response.data.email
                 });
             })
             .catch(error => {

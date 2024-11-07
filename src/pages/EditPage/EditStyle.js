@@ -70,11 +70,13 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
-    width: 100%; /* Make the input take the full width */
-    padding: 10px;
+    width: 100%;
+    height: 40px;
+    padding: 3px;
     font-size: 16px;
     border-radius: 5px;
     border: none;
+    margin-bottom: 10px; /* Add margin to ensure consistent spacing */
 `;
 
 export const ButtonContainer = styled.div`
@@ -87,7 +89,7 @@ export const PasswordInputContainer = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%; /* Ensure the container takes full width */
+    width: 100%;
 `;
 
 export const TogglePasswordButton = styled.button`
@@ -97,6 +99,7 @@ export const TogglePasswordButton = styled.button`
     border: none;
     cursor: pointer;
     color: #fff;
-    font-size: 20px; /* Increase the size of the emoji */
-    padding: 5px; /* Add padding for a larger clickable area */
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px; /* Add margin to ensure consistent spacing */
 `;
