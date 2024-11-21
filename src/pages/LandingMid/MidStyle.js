@@ -97,6 +97,7 @@ export const ImgDescription = styled.p`
     max-width: 50%;
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 50px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 

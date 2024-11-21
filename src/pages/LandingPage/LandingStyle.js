@@ -1,4 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
+import 'typeface-roboto'
+import 'typeface-archivo-black'
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -40,7 +42,7 @@ export const SectionTitle = styled.h1`
     max-width: 40%;
     margin: 0;
     text-align: center;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Archivo Black', sans-serif;
     font-weight: 800;
 
     @media (max-width: 768px) {
@@ -57,7 +59,7 @@ export const SectionDescription = styled.p`
     max-width: 40%;
     margin: 0;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 
     @media (max-width: 768px) {

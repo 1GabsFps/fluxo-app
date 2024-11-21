@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import 'typeface-archivo-black'
 
 export const MainContainer = styled.div`
     display: flex;
@@ -40,7 +41,7 @@ export const Title = styled.h1`
     max-width: 40%;
     margin: 0;
     text-align: center;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Archivo Black', sans-serif;
     font-weight: 800;
 
     @media (max-width: 1024px) {

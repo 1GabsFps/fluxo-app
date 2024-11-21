@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import 'typeface-roboto'
+import 'typeface-archivo-black'
+
 
 export const Card = styled.div`
     width: 400px;
@@ -20,7 +23,7 @@ export const Card = styled.div`
 export const CardTitle = styled.h2`
     font-size: 2em;
     color: #fff;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Archivo Black', sans-serif;
     font-weight: 800;
 
     @media (max-width: 768px) {
@@ -32,7 +35,7 @@ export const CardText = styled.p`
     font-size: 20px;
     max-width: 90%;
     color: #fff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 
     @media (max-width: 768px) {
@@ -49,7 +52,7 @@ export const CardButton = styled.button`
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     &:hover {
         background-color: #555;
