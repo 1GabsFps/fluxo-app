@@ -19,7 +19,7 @@ export default function Pagamento() {
     const [quantia, setQuantia] = useState("");
     const [email, setEmail] = useState("");
     const card = localStorage.getItem('cartao');
-    const usrtoken = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+    const usrtoken = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1];
 
     const handlePagamento = async (e) => {
         e.preventDefault();

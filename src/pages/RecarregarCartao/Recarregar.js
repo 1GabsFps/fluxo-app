@@ -10,9 +10,12 @@ export default function Recarregar() {
     const [cartoes, setCartoes] = useState([]);
 
     const HandleCartoes = async () => {
-        const data = {
-            token: document.cookie.split("=")[1]
-        };
+        const token = document.cookie.split("=")[1];
+        if (!token) {
+            console.error("Token não encontrado nos cookies");
+            return;
+        }
+        const data = { token };
         try {
             const response = await axios.post('http://127.0.0.1:8000/cartoes/', data);
             console.log("Dados recebidos:", response.data); // Verificar os dados recebidos

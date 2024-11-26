@@ -39,6 +39,10 @@ export const InputContainer = styled.input`
         font-size: 12px;
     }
 
+    &::placeholder {
+        color: transparent;
+    }
+
     @media (max-width: 768px) {
         font-size: 16px;
     }

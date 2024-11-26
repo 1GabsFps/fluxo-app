@@ -107,10 +107,10 @@ export default function LoginPage() {
                 <MainContainer>
                     <LoginForm onSubmit={(e) => e.preventDefault()}>
                     <Image src={Flogo} onClick={() => window.location.href = "/"} />
-                    <Input placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <Input placeholder="CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
-                    <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <Input placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Input name="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <Input name="cpf" placeholder="CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
+                    <Input name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Input name="password" placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <ButtonConteiner>
                         <Button Text="Cadastrar" onClick={HandleCadastrar} />
                         <Button Text="Login" inverted="true" onClick={handleButtonClick}/>
@@ -130,8 +130,8 @@ export default function LoginPage() {
             <MainContainer>
                 <LoginForm onSubmit={(e) => e.preventDefault()}>
                 <Image src={Flogo} onClick={() => window.location.href = "/"} />
-                    <Input placeholder="Cpf" value={cpf} onChange={(e) => setCpf(e.target.value)} />
-                    <Input placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Input name="cpf" placeholder="CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
+                    <Input name="password" placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <ForgotPassword>Esqueceu a senha?</ForgotPassword>
                     <ButtonConteiner>
                         <Button Text="Login" onClick={HandleLogar} />

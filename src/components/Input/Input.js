@@ -4,7 +4,7 @@ import { InputWrapper, InputContainer, InputLabel } from './InputStyle';
 const Input = ({ placeholder, value, onChange, type = "text" }) => (
     <InputWrapper>
         <InputContainer
-            placeholder=" "
+            placeholder={placeholder}
             id="input"
             value={value}
             onChange={onChange}
