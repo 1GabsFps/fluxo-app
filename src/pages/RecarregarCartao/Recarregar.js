@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
+import api from "../../utils/api";
+import { getAuthToken } from "../../utils/auth";
 import { CartaoBus } from "../../components/CartaoBus/CartaoBus";
 import { GlobalStyle, MainContainer, CardsContainer, CardText } from "./RecarregarStyle";
 import Header from "../../components/Header/Header";
@@ -8,38 +10,37 @@ import Tlogo from "../../img/FlogoTxt.svg";
 
 export default function Recarregar() {
     const [cartoes, setCartoes] = useState([]);
+    const navigate = useNavigate();
 
-    const HandleCartoes = async () => {
-        const token = document.cookie.split("=")[1];
+    const handleCartoes = useCallback(async () => {
+        const token = getAuthToken();
         if (!token) {
-            console.error("Token não encontrado nos cookies");
+            navigate("/login");
             return;
         }
-        const data = { token };
         try {
-            const response = await axios.post('http://127.0.0.1:8000/cartoes/', data);
-            console.log("Dados recebidos:", response.data); // Verificar os dados recebidos
+            const response = await api.post('/cartoes/', { token });
             if (response.data && typeof response.data === 'object') {
-                const cartoesArray = Object.values(response.data);
+                const cartoesArray = Array.isArray(response.data) 
+                    ? response.data 
+                    : Object.values(response.data);
                 setCartoes(cartoesArray);
-            } else {
-                console.error("Os dados recebidos não são um objeto");
             }
         } catch (error) {
-            console.error("Erro na requisição:", error);
+            toast.error("Não foi possível carregar seus cartões.");
         }
-    };
+    }, [navigate]);
 
     useEffect(() => {
-        HandleCartoes();
-    }, []);
+        handleCartoes();
+    }, [handleCartoes]);
 
     const handleRecharge = (cartao) => {
         if (cartao.classe === 'Idoso' || cartao.classe === 'Especial') {
             toast.error("Cartões de idoso ou especial não podem ser carregados.");
         } else {
             localStorage.setItem("cartao", cartao.id);
-            window.location.href = "/recarregar";
+            navigate("/recarregar");
         }
     };
 
@@ -48,19 +49,23 @@ export default function Recarregar() {
             <GlobalStyle />
             <Toaster />
             <MainContainer>
-                <Header Title={Tlogo} Item1="Item1" Item2="Item2" Item3="Item3" Item4="Item4" />
+                <Header Title={Tlogo} Item1="Sobre" Item2="Contato" Item3="Home" Item4="FAQ" Link1="/faq" Link2="/faq" Link3="/home" Link4="/faq" />
                 <CardsContainer>
                     {cartoes.length > 0 ? (
                         cartoes.map((cartao) => (
                             <div 
                                 key={cartao.id}
+                                role="button"
+                                tabIndex={0}
                                 style={{
                                     display: "flex",
                                     flexDirection: "column",
                                     alignItems: "center",
-                                    justifyContent: "center"
+                                    justifyContent: "center",
+                                    cursor: "pointer"
                                 }}
                                 onClick={() => handleRecharge(cartao)}
+                                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleRecharge(cartao)}
                             >
                                 <CartaoBus id={cartao.id} classe={cartao.classe} saldo={cartao.saldo} />
                             </div>

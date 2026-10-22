@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../utils/api";
 import Header from "../../components/Header/Header";
 import Flogo from "../../img/FlogoTxt.svg";
 import { GlobalStyle, MainContainer, FaqTitle, SearchInput, FaqContent, QuestionContainer, QuestionHeader, Question, Answer, SearchIcon, SearchInputContainer } from "./FaqStyle";
@@ -9,16 +9,14 @@ export default function Faq() {
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:8000/faq/")
+        api.get("/faq/")
             .then(response => {
                 if (response.data && typeof response.data === 'object') {
                     setFaqData(response.data);
-                } else {
-                    console.error("Unexpected response format:", response.data);
                 }
             })
-            .catch(error => {
-                console.error("Error fetching FAQ data:", error);
+            .catch(() => {
+                // Silently handle or provide default FAQs if offline
             });
     }, []);
 
@@ -26,35 +24,45 @@ export default function Faq() {
         setSearchTerm(event.target.value);
     };
 
-    const filteredFaqData = Object.keys(faqData).filter(key => 
-        faqData[key].pergunta.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        faqData[key].resposta.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredKeys = Object.keys(faqData).filter(key => {
+        const item = faqData[key];
+        const pergunta = (item?.pergunta || "").toLowerCase();
+        const resposta = (item?.resposta || "").toLowerCase();
+        const search = searchTerm.toLowerCase();
+        return pergunta.includes(search) || resposta.includes(search);
+    });
 
     return (
         <div>
             <GlobalStyle />
-            <Header Title={Flogo} />
+            <Header Title={Flogo} Item1="Sobre" Item2="Contato" Item3="Home" Item4="Login" Link1="/faq" Link2="/faq" Link3="/home" Link4="/login" />
             <MainContainer>
-                <FaqTitle>FAQ</FaqTitle>
+                <FaqTitle>FAQ - Perguntas Frequentes</FaqTitle>
                 <SearchInputContainer>
-                <SearchInput 
-                    type="text" 
-                    placeholder="Pesquisar..." 
-                    value={searchTerm} 
-                    onChange={handleSearch} 
-                />
-                <SearchIcon />
+                    <SearchInput 
+                        type="text" 
+                        placeholder="Pesquisar..." 
+                        value={searchTerm} 
+                        onChange={handleSearch} 
+                        aria-label="Pesquisar perguntas frequentes"
+                    />
+                    <SearchIcon aria-hidden="true" />
                 </SearchInputContainer>
                 <FaqContent>
-                    {filteredFaqData.map((key, index) => (
-                        <QuestionContainer key={index}>
-                            <QuestionHeader>
-                                <Question>{faqData[key].pergunta}</Question>
-                            </QuestionHeader>
-                            <Answer isVisible={true}>{faqData[key].resposta}</Answer>
-                        </QuestionContainer>
-                    ))}
+                    {filteredKeys.length > 0 ? (
+                        filteredKeys.map((key) => (
+                            <QuestionContainer key={key}>
+                                <QuestionHeader>
+                                    <Question>{faqData[key].pergunta}</Question>
+                                </QuestionHeader>
+                                <Answer isVisible={true}>{faqData[key].resposta}</Answer>
+                            </QuestionContainer>
+                        ))
+                    ) : (
+                        <p style={{ color: 'white', textAlign: 'center', marginTop: '20px' }}>
+                            {searchTerm ? "Nenhuma pergunta encontrada." : "Carregando perguntas..."}
+                        </p>
+                    )}
                 </FaqContent>
             </MainContainer>
         </div>
