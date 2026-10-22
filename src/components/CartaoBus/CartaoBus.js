@@ -1,12 +1,12 @@
+import React, { useState, useEffect, useRef } from "react";
 import { ReactComponent as Flogo } from "../../img/Flogo.svg";
-import { ReactComponent as Txtlogo } from "../../img/FlogoTxt.svg";
-import { Card, CardLogo, CardContainer, CardText } from "../../components/CartaoBus/CBusStyle";
-import { useState, useEffect } from "react";
+import { Card, CardContainer, CardText } from "../../components/CartaoBus/CBusStyle";
 
 export function CartaoBus({ id, classe, saldo }) {
     const [hovered, setHovered] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const timerRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -18,36 +18,41 @@ export function CartaoBus({ id, classe, saldo }) {
 
         return () => {
             window.removeEventListener("resize", handleResize);
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
         };
     }, []);
 
-    let Cor;
+    let cor;
     switch (classe) {
         case "Normal":
-            Cor = "#98633D";
+            cor = "#98633D";
             break;
         case "Estudante":
-            Cor = "#6361DC";
+            cor = "#6361DC";
             break;
         case "Especial":
-            Cor = "#4EC23B";
+            cor = "#4EC23B";
             break;
         case "Idoso":
-            Cor = "#5F6669";
+            cor = "#5F6669";
             break;
         default:
-            Cor = "#000000"; // Cor padrão
+            cor = "#000000";
     }
 
     const handleMouseEnter = () => {
         if (!isMobile) {
             setHovered(true);
-            setTimeout(() => setShowInfo(true), 500); // Ajuste o tempo conforme necessário
+            if (timerRef.current) clearTimeout(timerRef.current);
+            timerRef.current = setTimeout(() => setShowInfo(true), 500);
         }
     };
 
     const handleMouseLeave = () => {
         if (!isMobile) {
+            if (timerRef.current) clearTimeout(timerRef.current);
             setHovered(false);
             setShowInfo(false);
         }
@@ -59,37 +64,32 @@ export function CartaoBus({ id, classe, saldo }) {
             onMouseLeave={handleMouseLeave}
             style={{
                 transform: hovered && !isMobile ? "rotateY(180deg)" : "rotateY(0deg)",
-                transition: hovered && !isMobile ? "transform 0.5s" : "none", // Adicione a transição
+                transition: hovered && !isMobile ? "transform 0.5s" : "none",
             }}
         >
             {!hovered || isMobile ? (
                 <>
-                    <Flogo style={{
-                        width: "100px",
-                        height: "100px",
-                        fill: Cor,
-                        margin: "10px"
-                    }} />
+                    <Flogo 
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            fill: cor,
+                            margin: "10px"
+                        }} 
+                        aria-label={`Logo do cartão ${classe}`}
+                    />
                     {isMobile && (
                         <CardContainer>
-                            <CardText>
-                                Cartão {classe}
-                            </CardText>
-                            <CardText>
-                                Saldo R$: {saldo}
-                            </CardText>
+                            <CardText>Cartão {classe}</CardText>
+                            <CardText>Saldo R$: {saldo}</CardText>
                         </CardContainer>
                     )}
                 </>
             ) : (
                 showInfo && (
                     <CardContainer style={{ transform: "rotateY(180deg)" }}>
-                        <CardText>
-                            Cartão {classe}
-                        </CardText>
-                        <CardText>
-                            Saldo R$: {saldo}
-                        </CardText>
+                        <CardText>Cartão {classe}</CardText>
+                        <CardText>Saldo R$: {saldo}</CardText>
                     </CardContainer>
                 )
             )}

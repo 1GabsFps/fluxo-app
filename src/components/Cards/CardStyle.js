@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import 'typeface-roboto'
-import 'typeface-archivo-black'
-
+import 'typeface-roboto';
+import 'typeface-archivo-black';
 
 export const Card = styled.div`
     width: 400px;
@@ -18,6 +17,12 @@ export const Card = styled.div`
         width: 300px;
         height: 200px;
     }
+`;
+
+export const CardSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;
 
 export const CardTitle = styled.h2`
@@ -70,5 +75,4 @@ export const CardImage = styled.img`
     border-radius: 10px;
     display: flex;
     padding: 10px;
-
 `;

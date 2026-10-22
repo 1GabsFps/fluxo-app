@@ -1,21 +1,21 @@
 import React from "react";
-import { Card, CardTitle, CardButton, CardImage, CardText } from "./CardStyle";
+import { Card, CardTitle, CardButton, CardImage, CardText, CardSection } from "./CardStyle";
 
-function Cartoes({Titulo, Texto, Imagem, Botao}) {
+function Cartoes({ Titulo, Texto, Imagem, Botao, onClick }) {
     return (
         <div>
             <Card>
-                <container>
+                <CardSection>
                     <CardTitle>{Titulo}</CardTitle>
                     <CardText>{Texto}</CardText>
-                </container>
-                <container>
-                    <CardImage src={Imagem} />
-                    <CardButton>{Botao}</CardButton>
-                </container>
+                </CardSection>
+                <CardSection>
+                    <CardImage src={Imagem} alt={`Ilustração do cartão ${Titulo || ''}`} />
+                    <CardButton type="button" onClick={onClick}>{Botao}</CardButton>
+                </CardSection>
             </Card>        
         </div>
     );
-    }
+}
 
 export default Cartoes;
