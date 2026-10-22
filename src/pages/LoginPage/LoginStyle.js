@@ -1,4 +1,4 @@
-import {styled, createGlobalStyle} from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Flogo from "../../img/LogoBlue.svg";
 
 export const GlobalStyle = createGlobalStyle`

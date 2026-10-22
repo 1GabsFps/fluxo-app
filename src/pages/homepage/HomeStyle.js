@@ -1,14 +1,17 @@
-import { styled, createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
 
     body {
         padding: 0;
         margin: 0;
+        background-color: #3E3D3D;
+        font-family: 'Roboto', sans-serif;
     }
 `;
 
@@ -17,15 +20,11 @@ export const MainContainer = styled.div`
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
-    max-height: 100%;
     background-color: #3E3D3D;
     border: none;
 
     @media (max-width: 768px) {
-        height: 250vh;
-    }
-
-    @media (max-width: 480px) {
+        min-height: 100vh;
         height: auto;
     }
 `;
@@ -39,6 +38,7 @@ export const HiUser = styled.div`
     padding: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+
     @media (max-width: 768px) {
         padding: 5px;
     }
@@ -50,10 +50,11 @@ export const HiUser = styled.div`
 
 export const UserTitle = styled.h1`
     color: white;
-    font-size: 39px;
+    font-size: 36px;
     font-weight: bold;
     margin-left: 20px;
     font-family: 'Roboto', sans-serif;
+
     @media (max-width: 768px) {
         font-size: 20px;
         align-self: center;
@@ -64,7 +65,6 @@ export const UserTitle = styled.h1`
     }
 `;
 
-
 export const CardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -73,30 +73,29 @@ export const CardsContainer = styled.div`
     justify-content: center;
 
     @media (max-width: 768px) {
-        gap: 10px;
-        margin: 10px;
+        gap: 15px;
+        margin: 15px;
     }
 
     @media (max-width: 480px) {
-        gap: 5px;
-        margin: 5px;
+        gap: 10px;
+        margin: 10px;
     }
 `;
-
 
 export const Card = styled.div`
     display: flex;
     flex-direction: column;
     width: 400px;
-    height: 500px;
+    height: 480px;
     background-color: #383942;
     border-radius: 20px;
-    padding: 20px;
+    padding: 24px;
     align-items: center;
     justify-content: space-around;
     color: white;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3), 0px 12px 24px rgba(0, 0, 0, 0.2);
-    text-align: center; // Add this line to center-align text and icons
+    text-align: center;
 
     @media (max-width: 768px) {
         width: 90%;
@@ -111,12 +110,10 @@ export const Card = styled.div`
     }
 `;
 
-
-export const CardTitle = styled.h1`
-    font-size: 50x;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+export const CardTitle = styled.h2`
+    font-size: 32px;
     font-weight: 800;
+    font-family: 'Roboto', sans-serif;
 
     @media (max-width: 480px) {
         font-size: 24px;
@@ -124,24 +121,20 @@ export const CardTitle = styled.h1`
 `;
 
 export const CardText = styled.p`
-    margin-top: 20px;
-    font-size: 35px;
+    margin-top: 15px;
+    font-size: 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 
     @media (max-width: 480px) {
-        font-size: 18px;
+        font-size: 16px;
     }
 `;
 
 export const ButtonConteiner = styled.div`
-
     display: flex;
     gap: 10px;
     width: 100%;
-    justify-content: flex-start;
-
-    @media (max-width: 480px) {
-        align-items: center;
-    }
+    justify-content: center;
+    margin-top: 15px;
 `;
